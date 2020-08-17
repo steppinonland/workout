@@ -10,4 +10,6 @@ async function init() {
     }
   }
 }
-
+module.exports = {
+  workout: require("./workout")
+};

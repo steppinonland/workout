@@ -1,3 +1,5 @@
+const mongoose = require("mongoose");
+
 async function initWorkout() {
   const lastWorkout = await API.getLastWorkout();
   console.log("Last workout:", lastWorkout);

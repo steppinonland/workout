@@ -39,6 +39,15 @@ app.get("/api/workouts", (req, res) => {
 });
 
 // creating new workout
+app.post("/api/workouts", (req, res) => {
+  db.Workout.create(req.body)
+  .then((dbWorkout) => {
+    res.json(dbWorkout);
+  })
+  .catch((err) => {
+    res.json(err);
+  });
+})
 
 // updating the workout
 

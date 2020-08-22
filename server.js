@@ -50,7 +50,23 @@ app.post("/api/workouts", (req, res) => {
 })
 
 // updating the workout
-
+app.put("/api/workouts/:id", (req, res) => {
+    var workoutId = req.params.id;
+    db.Exercise.create(req.body)
+    .then(({ _id }) => 
+      db.Workout.findOneAndUpdate(
+        { id: workoutId },
+        { $push: { exercises: _id } },
+        { new: true }
+      )
+    )
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 // get the workouts to the stats dashboard
 app.get("/api/workouts/range", (req, res) => {
   db.Workout.find({}, { sort: { day: 1 } })

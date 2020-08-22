@@ -38,6 +38,10 @@ app.get("/api/workouts", (req, res) => {
   });
 });
 
+// creating new workout
+
+// updating the workout
+
 // get the workouts to the stats dashboard
 app.get("/api/workouts/range", (req, res) => {
   db.Workout.find({}, { sort: { day: 1 } })

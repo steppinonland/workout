@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
+const db = require("./models");
 
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
@@ -18,6 +19,9 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
 });
 
 // get the exercise
+app.get("/exercise", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public/exercise.html"));
+})
 // get the stats
 // get the workouts
 

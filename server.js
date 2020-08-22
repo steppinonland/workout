@@ -7,8 +7,6 @@ const PORT = process.env.PORT || 3000;
 
 const app = express();
 
-const db = require("./models");
-
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
